@@ -1,4 +1,3 @@
-# test_calculator.py
 import sys
 import os
 
@@ -16,5 +15,23 @@ try:
     assert False, "divide by zero should raise"
 except ValueError:
     print("divide by zero correctly raises ValueError")
+
+try:
+    add("two", 3)
+    assert False, "should raise TypeError on string input"
+except TypeError:
+    print("string input correctly raises TypeError")
+
+try:
+    multiply(True, 4)
+    assert False, "should raise TypeError on bool input"
+except TypeError:
+    print("bool input correctly raises TypeError")
+
+try:
+    divide(10, float("inf"))
+    assert False, "should raise TypeError on inf input"
+except TypeError:
+    print("inf input correctly raises TypeError")
 
 print("All tests passed")
